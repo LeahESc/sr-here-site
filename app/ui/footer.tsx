@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { XMarkIcon, CameraIcon } from '@heroicons/react/24/solid';
 import { poppins } from './fonts';
+import clsx from 'clsx';
 
 export default function Footer() {
   const links = [
@@ -16,7 +17,7 @@ export default function Footer() {
     },
   ];
   return (
-    <div className="bg-violet-400 mx-auto p-3 justify-content-center fixed w-full bottom-0 end-0 border-b border-pink-200">
+    <div className="bg-white mx-auto p-3 justify-content-center fixed w-full bottom-0 end-0 border-b border-pink-200">
       <div className="flex place-content-center mr-4 space-x-8 p-4 md:p-0 font-medium sm:space-x-2 md:space-x-8">
         {links.map(link => (
             <Link 
