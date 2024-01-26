@@ -1,19 +1,20 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import Data from '../types/data';
 
-
-// type Credit = {
-
-// }
 const url = "https://api.themoviedb.org/3/person/10131/combined_credits?language=en-US"
+type JSONResponse = {
+  data?: Omit<Data, 'fetchedAt'>
+}
 
 export default function Page() {
   const [credits, setCredits] = useState([])
   const [movies, setMovies] = useState([])
   const [tv, setTV] = useState([])
   const [loading, setLoading] = useState(true)
-
-  const getCreditData = async() => {
+// <Promise>:Data
+// (url: string):
+  const getCreditData = async()  => {
     fetch(url, {
       method: "GET",
       headers: {
@@ -25,22 +26,18 @@ export default function Page() {
       return response.json();
     })
     .then((data) => {
+      setCredits(data.cast)
       const movieData = data.cast.filter(credit => credit.title).sort((creditA, creditB) => new Date(creditB.release_date) - new Date(creditA.release_date))
-      console.log(movieData)
       setMovies(movieData)
-       const tvData = data.cast.filter(credit=> credit.name).sort((creditA, creditB) => new Date(creditB.first_air_date) -  new Date(creditA.first_air_date))
+      const tvData = data.cast.filter(credit=> credit.name).sort((creditA, creditB) => new Date(creditB.first_air_date) -  new Date(creditA.first_air_date))
       setTV(tvData)
-      console.log(tvData)
 
-      // const sortedData = data.cast.sort((creditA, creditB) => (creditA.release_date > creditB.release_date))
-      setCredits(data.cast);
-      console.log({data})
       setLoading(false);
     })
   }
 
   useEffect(() => {
-    getCreditData();
+    getCreditData(url);
   }, [])
 
   return (
