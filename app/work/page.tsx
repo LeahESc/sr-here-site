@@ -55,7 +55,7 @@ export default function Page() {
           </div>
         </div>
       }
-      {credits.length > 0 && !loading && 
+      {!loading && 
         <div className="flex w-full justify-between py-36 bg-gradient-to-b from-green-100 to-blue-500">
           <Image
             className="mx-auto top-36 z-5 max-xl:absolute shrink-0"
