@@ -23,16 +23,8 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="w-full mx-auto pt-24 bg-gradient-to-b from-rose-100 to-orange-600 border-b border-violet-600">
-        <div className="md:flex md:flex-wrap mx-auto">
-          <Image
-            className="mx-auto shrink-0"
-            src="/sara_hero.png"
-            alt="Sara Rue Hero Image"
-            width={750}
-            height={550}
-            priority
-          />
+      <div className="justify-center w-full m-auto pt-24 bg-gradient-to-b from-pink-100 to-orange-400 border-b border-violet-600">
+        <div className="md:flex justify-center mx-auto">
           <Image
             className="z-5 sm:relative shrink-0"
             src="/coming_soon.png"

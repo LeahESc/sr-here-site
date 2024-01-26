@@ -21,11 +21,11 @@ export default function NavBar() {
       href: '/work',
       // icon: UserGroupIcon 
     },
-    // { 
-    //   name: 'PICKLE',
-    //   href: '/pickle_ball',
-    //   // icon: UserGroupIcon 
-    // },
+    { 
+      name: 'PICKLE',
+      href: '/pickleball',
+      // icon: UserGroupIcon 
+    },
   ];
   return (
     <nav className="bg-white mx-auto py-8 z-20 justify-content-center fixed w-full z-20 top-0 start-0">
@@ -37,7 +37,7 @@ export default function NavBar() {
               className={clsx(
                 'flex inline-block text-gray-800',
                 {
-                  'text-rose-600' : pathname === link.href,
+                  'text-pink-600' : pathname === link.href,
                 },
               )}
               // className="flex inline-block text-gray-800"
