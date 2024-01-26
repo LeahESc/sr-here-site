@@ -57,10 +57,10 @@ export default function Page() {
         </div>
       }
       {credits.length > 0 && !loading && 
-      <div className="flex bg-white w-[90%] m-auto justify-center space-x-8">
+      <div className="flex bg-white w-full m-auto justify-center space-x-8">
         <div>
         {tv.map(credit => (
-          <div key={credit.credit_id} className="bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded">
+          <div key={credit.credit_id} className="w-full bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent px-4 rounded">
             <h2 className="text-pink-600">{credit.name}</h2>
             <p className="text-pink-600">{credit.character}</p>
             <p className="text-pink-600">{credit.first_air_date}</p>
@@ -69,7 +69,7 @@ export default function Page() {
         </div>
         <div>
         {movies.map(credit => (
-          <div key={credit.credit_id} className="bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded">
+          <div key={credit.credit_id} className="w-full bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent px-4 rounded">
             <h2 className="text-pink-600">{credit.title}</h2>
             <p className="text-pink-600">{credit.character}</p>
             <p className="text-pink-600">{credit.release_date}</p>
