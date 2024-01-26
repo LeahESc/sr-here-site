@@ -15,29 +15,29 @@ export default function Page() {
 // <Promise>:Data
 // (url: string):
   const getCreditData = async()  => {
-    fetch(url, {
-      method: "GET",
-      headers: {
-        accept: 'application/json',
-        Authorization: `Bearer ${process.env.THE_MOVE_DATABASE_KEY}`
-      }
-    })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      setCredits(data.cast)
-      const movieData = data.cast.filter(credit => credit.title).sort((creditA, creditB) => new Date(creditB.release_date) - new Date(creditA.release_date))
-      setMovies(movieData)
-      const tvData = data.cast.filter(credit=> credit.name).sort((creditA, creditB) => new Date(creditB.first_air_date) -  new Date(creditA.first_air_date))
-      setTV(tvData)
+    // fetch(url, {
+    //   method: "GET",
+    //   headers: {
+    //     accept: 'application/json',
+    //     Authorization: `Bearer ${process.env.THE_MOVE_DATABASE_KEY}`
+    //   }
+    // })
+    // .then((response) => {
+    //   return response.json();
+    // })
+    // .then((data) => {
+    //   setCredits(data.cast)
+    //   const movieData = data.cast.filter(credit => credit.title).sort((creditA, creditB) => new Date(creditB.release_date) - new Date(creditA.release_date))
+    //   setMovies(movieData)
+    //   const tvData = data.cast.filter(credit=> credit.name).sort((creditA, creditB) => new Date(creditB.first_air_date) -  new Date(creditA.first_air_date))
+    //   setTV(tvData)
 
-      setLoading(false);
-    })
+    //   setLoading(false);
+    // })
   }
 
   useEffect(() => {
-    getCreditData(url);
+    getCreditData();
   }, [])
 
   return (
