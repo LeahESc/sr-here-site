@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Data from '../types/data';
+import Image from 'next/image';
 
 const url = "https://api.themoviedb.org/3/person/10131/combined_credits?language=en-US"
 type JSONResponse = {
@@ -38,6 +39,7 @@ export default function Page() {
 
   useEffect(() => {
     getCreditData();
+    setLoading(false)
   }, [])
 
   return (
@@ -54,28 +56,38 @@ export default function Page() {
         </div>
       }
       {credits.length > 0 && !loading && 
-      <div className="flex bg-white w-full m-auto justify-center space-x-8">
-        <div>
-        {tv.map(credit => (
-          <div key={credit.credit_id} className="w-full bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent px-4 rounded">
-            <h2 className="text-pink-600">{credit.name}</h2>
-            <p className="text-pink-600">{credit.character}</p>
-            <p className="text-pink-600">{credit.first_air_date}</p>
-          </div>
-        ))}
+        <div className="flex w-full justify-between py-36 bg-gradient-to-b from-green-100 to-blue-500">
+          <Image
+            className="mx-auto top-36 z-5 max-xl:absolute shrink-0"
+            src="/coming_soon.png"
+            alt="Coming Soon!"
+            width={550}
+            height={650}
+            priority
+          />
         </div>
-        <div>
-        {movies.map(credit => (
-          <div key={credit.credit_id} className="w-full bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent px-4 rounded">
-            <h2 className="text-pink-600">{credit.title}</h2>
-            <p className="text-pink-600">{credit.character}</p>
-            <p className="text-pink-600">{credit.release_date}</p>
-          </div>
-        ))}
-        </div>
+      // <div className="flex bg-white w-full m-auto justify-center space-x-8">
+      //   <div>
+      //   {tv.map(credit => (
+      //     <div key={credit.credit_id} className="w-full bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent px-4 rounded">
+      //       <h2 className="text-pink-600">{credit.name}</h2>
+      //       <p className="text-pink-600">{credit.character}</p>
+      //       <p className="text-pink-600">{credit.first_air_date}</p>
+      //     </div>
+      //   ))}
+      //   </div>
+      //   <div>
+      //   {movies.map(credit => (
+      //     <div key={credit.credit_id} className="w-full bg-transparent hover:bg-orange-200 text-pink-600 font-semibold hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent px-4 rounded">
+      //       <h2 className="text-pink-600">{credit.title}</h2>
+      //       <p className="text-pink-600">{credit.character}</p>
+      //       <p className="text-pink-600">{credit.release_date}</p>
+      //     </div>
+      //   ))}
+      //   </div>
         
-        {/* <div className="border-gray-800 radius-lg"></div> */}
-      </div>
+      //   {/* <div className="border-gray-800 radius-lg"></div> */}
+      // </div>
       }
     </div>
   );
